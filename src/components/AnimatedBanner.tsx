@@ -18,14 +18,14 @@ interface AnimatedBannerProps {
 }
 
 const defaultBanners: Banner[] = [
-  { 
-    id: 1, 
+  {
+    id: 1,
     type: 'bonus-wheel',
     bonusText: "get up to",
     bonusPercentage: "100%"
   },
-  { 
-    id: 2, 
+  {
+    id: 2,
     type: 'product-showcase',
     text: "Hottest Drink of Month",
     subtitle: "Fruity",
@@ -39,7 +39,7 @@ const defaultBanners: Banner[] = [
   { id: 3, type: 'text-reveal', text: "Order Now & Enjoy" }
 ];
 
-export default function AnimatedBanner({ 
+export default function AnimatedBanner({
   banners = defaultBanners,
   autoPlayInterval = 8000
 }: AnimatedBannerProps) {

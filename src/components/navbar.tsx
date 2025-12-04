@@ -17,7 +17,7 @@ export default function Navbar({ showLogo = true, showSignIn = true }: Props) {
       <div className="navbar-left">
         {/* If in category page → show back button */}
         {!showLogo ? (
-          <button className="back-btn" onClick={() => navigate(-1)}>
+          <button className="back-btn" onClick={() => navigate('/')}>
             ←
           </button>
         ) : (

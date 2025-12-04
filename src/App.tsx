@@ -11,7 +11,6 @@ export default function App(): JSX.Element {
       <Route path="/" element={<HomePage />} />
       <Route path="/category" element={<CategoryPage />} />
       <Route path="/doodle-jump" element={<DoodleJumpReact />} />
-      {/* optional: add admin/game/cabinet routes later */}
     </Routes>
   );
 }

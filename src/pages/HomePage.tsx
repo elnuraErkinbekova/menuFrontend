@@ -25,8 +25,8 @@ const animatedBanners = [
   { 
     id: 2, 
     type: 'product-showcase' as const,
-    text: "50%          off",
-    subtitle: "Caramel Latte",
+    text: "50%              off",
+    subtitle: "Fruit Cakes",
     productImage: "src/assets/featured-drink.png",
     floatingItems: [
       "src/assets/apple-slice-1.png",
