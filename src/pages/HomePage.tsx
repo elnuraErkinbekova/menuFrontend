@@ -1,15 +1,9 @@
-import React, { useEffect, useState, type JSX } from "react";
+import React, { useState, type JSX } from "react";
+import { useNavigate } from 'react-router-dom';
 import Navbar from "../components/navbar.tsx";
-import type { Banner, Category } from "../types.ts";
+import AnimatedBanner from "../components/AnimatedBanner.tsx";
+import type { Category } from "../types.ts";
 import "../App.css";
-
-const API_URL = "http://localhost:3000"; // replace with real backend later
-
-const mockBanners: Banner[] = [
-  { id: 1, img: "src/assets/banner1.jpg", title: "Special Offer" },
-  { id: 2, img: "src/assets/banner2.jpg", title: "New Drinks" },
-  { id: 3, img: "src/assets/banner3.jpg", title: "Happy Hours" },
-];
 
 const mockCategories: Category[] = [
   { id: 1, name_en: "Breakfast", img: "src/assets/cat1.jpg" },
@@ -20,47 +14,51 @@ const mockCategories: Category[] = [
   { id: 6, name_en: "Soups", img: "src/assets/cat2.jpg" },
 ];
 
+// Define your 3 unique animated banners
+const animatedBanners = [
+  { 
+    id: 1, 
+    type: 'bonus-wheel' as const,
+    bonusText: "get up to",
+    bonusPercentage: "100%"
+  },
+  { 
+    id: 2, 
+    type: 'product-showcase' as const,
+    text: "50%          off",
+    subtitle: "Caramel Latte",
+    productImage: "src/assets/featured-drink.png",
+    floatingItems: [
+      "src/assets/apple-slice-1.png",
+      "src/assets/apple-slice-2.png",
+      "src/assets/apple-slice-3.png"
+    ]
+  },
+  { 
+    id: 3, 
+    type: 'text-reveal' as const,
+    text: "Order Now & Enjoy" 
+  }
+];
+
 export default function HomePage(): JSX.Element {
-  const [banners, setBanners] = useState<Banner[]>(mockBanners);
-  const [categories, setCategories] = useState<Category[]>(mockCategories);
-  const [slide, setSlide] = useState(0);
-
-  useEffect(() => {
-    // If you have a real endpoint: fetch banners here and setBanners(...)
-    // fetch(`${API_URL}/banners`).then(r => r.json()).then(setBanners)
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setSlide((s) => (banners.length ? (s + 1) % banners.length : 0));
-    }, 3500);
-    return () => clearInterval(timer);
-  }, [banners]);
+  const [categories] = useState<Category[]>(mockCategories);
+  const navigate = useNavigate();
 
   return (
     <div className="menu-page">
       <Navbar showLogo={true} showSignIn={true} />
-
-      <div className="carousel-wrapper">
-        <div
-          className="carousel-slider"
-          style={{ transform: `translateX(-${slide * 100}%)` }}
-        >
-          {banners.map((b) => (
-            <div className="carousel-slide" key={b.id}>
-              <img src={b.img} alt={b.title} />
-              <div className="carousel-title">{b.title}</div>
-            </div>
-          ))}
-        </div>
-      </div>
+      
+      <AnimatedBanner 
+        banners={animatedBanners} 
+        autoPlayInterval={8000} 
+      />
 
       <div className="bonus-wrapper">
         <button
           className="bonus-btn"
           onClick={() => {
-            // future: open bonus modal or navigate to /bonuses
-            alert("Get Bonuses — integrate game later");
+            navigate('/doodle-jump');
           }}
         >
           Get Bonuses
@@ -68,7 +66,6 @@ export default function HomePage(): JSX.Element {
       </div>
 
       <h2 className="categories-title">Menu Categories</h2>
-
       <div className="categories-grid">
         {categories.map((c) => (
           <a
