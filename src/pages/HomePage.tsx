@@ -1,8 +1,9 @@
+// src/pages/HomePage.tsx
 import React, { useState, type JSX } from "react";
 import { useNavigate } from 'react-router-dom';
-import Navbar from "../components/navbar.tsx";
-import AnimatedBanner from "../components/AnimatedBanner.tsx";
-import type { Category } from "../types.ts";
+import Navbar from "../components/navbar";
+import AnimatedBanner from "../components/AnimatedBanner";
+import type { Category } from "../types";
 import "../App.css";
 
 const mockCategories: Category[] = [
@@ -14,31 +15,10 @@ const mockCategories: Category[] = [
   { id: 6, name_en: "Soups", img: "src/assets/cat2.jpg" },
 ];
 
-// Define your 3 unique animated banners
 const animatedBanners = [
-  { 
-    id: 1, 
-    type: 'bonus-wheel' as const,
-    bonusText: "get up to",
-    bonusPercentage: "100%"
-  },
-  { 
-    id: 2, 
-    type: 'product-showcase' as const,
-    text: "50%              off",
-    subtitle: "Fruit Cakes",
-    productImage: "src/assets/featured-drink.png",
-    floatingItems: [
-      "src/assets/apple-slice-1.png",
-      "src/assets/apple-slice-2.png",
-      "src/assets/apple-slice-3.png"
-    ]
-  },
-  { 
-    id: 3, 
-    type: 'text-reveal' as const,
-    text: "Order Now & Enjoy" 
-  }
+  { id: 1, type: 'bonus-wheel' as const, bonusText: "get up to", bonusPercentage: "100%" },
+  { id: 2, type: 'product-showcase' as const, text: "50%              off", subtitle: "Fruit Cakes", productImage: "src/assets/featured-drink.png", floatingItems: ["src/assets/apple-slice-1.png","src/assets/apple-slice-2.png","src/assets/apple-slice-3.png"] },
+  { id: 3, type: 'text-reveal' as const, text: "Order Now & Enjoy" }
 ];
 
 export default function HomePage(): JSX.Element {
@@ -58,7 +38,7 @@ export default function HomePage(): JSX.Element {
         <button
           className="bonus-btn"
           onClick={() => {
-            navigate('/doodle-jump');
+            navigate('/doodle-jump'); // protected route
           }}
         >
           Get Bonuses
@@ -68,17 +48,20 @@ export default function HomePage(): JSX.Element {
       <h2 className="categories-title">Menu Categories</h2>
       <div className="categories-grid">
         {categories.map((c) => (
-          <a
+          <div
             key={c.id}
             className="category-card"
-            href={`/category?category=${c.id}`}
+            onClick={() => navigate(`/category?category=${c.id}`)}
             aria-label={c.name_en}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter') navigate(`/category?category=${c.id}`) }}
           >
             <div className="category-img-wrap">
               <img src={c.img} alt={c.name_en} />
             </div>
             <div className="category-name">{c.name_en}</div>
-          </a>
+          </div>
         ))}
       </div>
     </div>

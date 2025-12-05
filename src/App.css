@@ -632,3 +632,89 @@ body, html {
     padding: 0 0.75rem 1.5rem;
   }
 }
+
+.auth-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #ffffff;
+}
+
+.auth-content {
+  padding-top: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 380px;
+  padding: 25px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.auth-btn {
+  padding: 12px;
+  border: none;
+  background: #f0a500;
+  color: white;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-btn:hover {
+  opacity: 0.9;
+}
+
+.auth-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cabinet-card {
+  width: 95%;
+  max-width: 420px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+.no-discount {
+  color: #999;
+  font-style: italic;
+}
+
+.logout-btn {
+  margin-right: 15px;
+  background: #f08f44;
+  padding: 7px 14px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+}
+.logout-btn:hover {
+  opacity: 0.8;
+}
