@@ -456,7 +456,6 @@
 .wheel-text-main {
   font-size: clamp(1rem, 2.5vw, 1.8rem);
   font-weight: 400;
-  text-transform: lowercase;
   opacity: 0;
   animation: fadeInScale 0.6s ease 1.2s forwards;
 }
@@ -562,7 +561,7 @@
 @media (max-width: 600px) {
   .wheel-background,
   .wheel-text {
-    width: 70%;
+    width: 100%;
   }
 
   .wheel-text text {

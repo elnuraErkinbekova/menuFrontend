@@ -718,3 +718,37 @@ body, html {
 .logout-btn:hover {
   opacity: 0.8;
 }
+
+/* Soft bounce animation when appearing */
+.bounce-appear {
+  animation: bounceAppear 0.9s ease-out;
+}
+
+/* Soft bounce when clicked */
+.bounce-click {
+  animation: bounceClick 0.35s ease-out;
+}
+
+/* Periodic bounce animation */
+.bounce-pulse {
+  animation: bouncePulse 0.9s ease-in-out;
+}
+
+@keyframes bounceAppear {
+  0% { transform: scale(0.9); opacity: 0; }
+  50% { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes bounceClick {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.93); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bouncePulse {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.06); }
+  70% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}

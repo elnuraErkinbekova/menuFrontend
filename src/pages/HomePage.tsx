@@ -16,7 +16,7 @@ const mockCategories: Category[] = [
 ];
 
 const animatedBanners = [
-  { id: 1, type: 'bonus-wheel' as const, bonusText: "get up to", bonusPercentage: "100%" },
+  { id: 1, type: 'bonus-wheel' as const, bonusText: "GET UP", bonusPercentage: "100%" },
   { id: 2, type: 'product-showcase' as const, text: "50%              off", subtitle: "Fruit Cakes", productImage: "src/assets/featured-drink.png", floatingItems: ["src/assets/apple-slice-1.png","src/assets/apple-slice-2.png","src/assets/apple-slice-3.png"] },
   { id: 3, type: 'text-reveal' as const, text: "Order Now & Enjoy" }
 ];

@@ -21,7 +21,7 @@ const defaultBanners: Banner[] = [
   {
     id: 1,
     type: 'bonus-wheel',
-    bonusText: "get up to",
+    bonusText: "GET UP TO",
     bonusPercentage: "100%"
   },
   {
@@ -121,7 +121,7 @@ export default function AnimatedBanner({
 
       {currentBanner.type === 'bonus-wheel' && (
         <BonusWheelAnimation
-          bonusText={currentBanner.bonusText || 'get up to'}
+          bonusText={currentBanner.bonusText || 'GET UP TO'}
           bonusPercentage={currentBanner.bonusPercentage || '100%'}
           isActive={isAnimating}
         />
@@ -274,7 +274,7 @@ function BonusWheelAnimation({
         <path
           id="circle1"
           d="M440 270C440 363.888 363.888 440 270 440C176.112 440 100 363.888 100 270C100 176.112 176.112 100 270 100C363.888 100 440 176.112 440 270Z"
-          strokeWidth="40"
+          // REMOVED: strokeWidth="40" - This was causing the issue
         />
         <text>
           <textPath alignmentBaseline="middle" href="#circle1" stroke="none" fill="#000">
@@ -287,9 +287,9 @@ function BonusWheelAnimation({
       <svg className="wheel-text wheel-text-2" viewBox="0 0 540 540" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           id="circle2"
-          stroke="#000"
+          // REMOVED: stroke="#000" - This was causing the issue
           d="M480 270C480 385.98 385.98 480 270 480C154.02 480 60 385.98 60 270C60 154.02 154.02 60 270 60C385.98 60 480 154.02 480 270Z"
-          strokeWidth="40"
+          // REMOVED: strokeWidth="40" - This was causing the issue
         />
         <text>
           <textPath alignmentBaseline="middle" href="#circle2" stroke="none" fill="#fff">
@@ -303,7 +303,7 @@ function BonusWheelAnimation({
         <path
           id="circle3"
           d="M520 270C520 408.071 408.071 520 270 520C131.929 520 20 408.071 20 270C20 131.929 131.929 20 270 20C408.071 20 520 131.929 520 270Z"
-          strokeWidth="40"
+          // REMOVED: strokeWidth="40" - This was causing the issue
         />
         <text>
           <textPath alignmentBaseline="middle" href="#circle3" stroke="none" fill="#000">

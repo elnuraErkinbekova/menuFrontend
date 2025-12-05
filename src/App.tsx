@@ -1,5 +1,5 @@
 // src/App.tsx
-import React from "react";
+import React, { type JSX } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
